@@ -32,7 +32,6 @@
             System.Windows.Forms.Label baseCurveNameLabel;
             System.Windows.Forms.Label baseCurveDegreeLabel;
             System.Windows.Forms.Label selectedCurveLabel;
-            this.baseCurveBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.modifyButton = new System.Windows.Forms.Button();
             this.dragButton = new System.Windows.Forms.Button();
             this.canvas = new System.Windows.Forms.PictureBox();
@@ -60,7 +59,6 @@
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reducedCurvesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.noneLabel = new System.Windows.Forms.Label();
@@ -69,14 +67,16 @@
             this.exportDialog = new System.Windows.Forms.SaveFileDialog();
             this.reducedBezierCurveDetailView = new BezierToy.ReducedBezierCurveDetailView();
             this.reducedBezierCurvesView = new BezierToy.ReducedBezierCurvesView();
+            this.baseCurveBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.baseCurveColorView = new BezierToy.ColorView();
+            this.modelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             baseCurveNameLabel = new System.Windows.Forms.Label();
             baseCurveDegreeLabel = new System.Windows.Forms.Label();
             selectedCurveLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.baseCurveBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reducedCurvesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseCurveBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,10 +102,6 @@
             baseCurveDegreeLabel.TabIndex = 5;
             baseCurveDegreeLabel.Text = "0";
             baseCurveDegreeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // baseCurveBindingSource
-            // 
-            this.baseCurveBindingSource.DataSource = typeof(BezierToy.BezierCurve);
             // 
             // selectedCurveLabel
             // 
@@ -357,10 +353,6 @@
             this.reducedCurvesBindingSource.DataMember = "ReducedCurves";
             this.reducedCurvesBindingSource.DataSource = this.modelBindingSource;
             // 
-            // modelBindingSource
-            // 
-            this.modelBindingSource.DataSource = typeof(BezierToy.Model);
-            // 
             // removeButton
             // 
             this.removeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -390,7 +382,7 @@
             this.noneLabel.Name = "noneLabel";
             this.noneLabel.Size = new System.Drawing.Size(250, 129);
             this.noneLabel.TabIndex = 0;
-            this.noneLabel.Text = "None";
+            this.noneLabel.Text = "Nenhum";
             this.noneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // saveModelDialog
@@ -426,6 +418,10 @@
             this.reducedBezierCurvesView.TabIndex = 13;
             this.reducedBezierCurvesView.SelectedCurveChanged += new System.Action(this.reducedBezierCurvesView_SelectedCurveChanged);
             // 
+            // baseCurveBindingSource
+            // 
+            this.baseCurveBindingSource.DataSource = typeof(BezierToy.BezierCurve);
+            // 
             // baseCurveColorView
             // 
             this.baseCurveColorView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -436,6 +432,10 @@
             this.baseCurveColorView.Name = "baseCurveColorView";
             this.baseCurveColorView.Size = new System.Drawing.Size(13, 13);
             this.baseCurveColorView.TabIndex = 11;
+            // 
+            // modelBindingSource
+            // 
+            this.modelBindingSource.DataSource = typeof(BezierToy.Model);
             // 
             // MainWindow
             // 
@@ -463,11 +463,11 @@
             this.Text = "BezierToy";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainWindow_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.baseCurveBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reducedCurvesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseCurveBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
